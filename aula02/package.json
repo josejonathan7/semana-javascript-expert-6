@@ -1,0 +1,34 @@
+{
+  "name": "spotify",
+  "version": "1.0.0",
+  "description": "Seja bem vindo(a) à sexta Semana Javascript Expert. Este é o código inicial para iniciar nossa jornada.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "LOG_DISABLE=true NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest --no-cache",
+    "test:watch": "LOG_DISABLE=true NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest --no-cache --watchAll",
+    "test:coverage": "LOG_DISABLE=true NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest --no-cache --coverage __tests__/unit",
+	"test:e2e": "LOG_DISABLE=true NODE_OPTIONS='--experimental-vm-modules --no-warnings' jest --no-cache __tests__/e2e",
+    "start": "node server/index.js",
+    "live-reload": "nodemon server/index.js",
+    "live-reload:docker": "docker-compose up --build live-reload",
+	"test:coverage:docker": "sudo docker-compose up --build test-coverage",
+	"test:watch:docker": "sudo docker-compose up --build test-watch",
+	"test:docker": "sudo docker-compose up --build test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "jest": "27",
+    "nodemon": "2",
+    "portfinder": "1.0.28",
+    "supertest": "6.2.2"
+  },
+  "dependencies": {
+    "pino": "7.8.0",
+    "pino-pretty": "7.5.3",
+    "throttle": "1.0.3"
+  }
+}
