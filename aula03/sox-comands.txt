@@ -1,0 +1,44 @@
+sox --i "audio/songs/conversation.mp3"
+
+sox --i "audio/fx/Boo! Sound Effect (128 kbps).mp3"
+
+//caso eu queira converter um audio para o mesmo bitrate
+sox \
+
+	//volume
+	-v 0.99 \
+
+	//tipo
+	-t mp3 \
+
+	//endereço do arquivo que quero modificar
+	"audio/fx/Boo! Sound Effect (128 kbps).mp3" \
+
+	//range do arquivo que quero setar
+	-r	48000 \
+
+	//qual vai ser o tipo da saida do arquivo
+	-t	mp3 \
+
+	//nome do arquivo de saida
+	"output.mp3"
+
+
+//obter o bitrate
+sox --i  -B "audio/fx/Boo! Sound Effect (128 kbps).mp3"
+
+
+//concaternar dois audios (audio principal e efeitos)
+sox \
+	-t mp3 \
+	-v 0.99 \
+
+	//o nome do audio que eu vou mergear
+	-m "audio/songs/conversation.mp3" \
+
+	//informações do segundo audio que vai usado no merge
+	-t mp3 \
+	-v 0.99 \
+	"audio/fx/Boo! Sound Effect (128 kbps).mp3" \
+	-t mp3 \
+	"output.mp3"
